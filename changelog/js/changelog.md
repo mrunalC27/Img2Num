@@ -1,0 +1,99 @@
+# JavaScript - Full Changelog
+
+URL: https://img2num.dev/changelog/js/changelog
+
+[`img2num-js`](https://github.com/Ryan-Millard/Img2Num/releases)
+
+## [v0.4.2 - 2026-08-18](https://github.com/Ryan-Millard/Img2Num/releases/tag/packages-js-v0.4.2)
+
+### 🐛 Bug Fixes
+
+- **commonjs:** load webgpu via dynamic import, fall back to CPU, and guard the CJS build ( [#562](https://github.com/Ryan-Millard/Img2Num/issues/562) ) ( [e44480d](https://github.com/Ryan-Millard/Img2Num/commit/e44480d9c4736c1ae67094a121731ae9adc4365b) )
+
+## [v0.4.0 - 2026-08-16](https://github.com/Ryan-Millard/Img2Num/releases/tag/packages-js-v0.4.0)
+
+### ⚠ BREAKING CHANGES
+
+- **js:** dist layout and filenames have changed. Artifacts now live at dist/browser/img2num.js, dist/standalone/img2num.umd.js, dist/standalone/img2num.iife.js, and dist/node/img2num.{js,cjs}; deep imports into dist/ must be updated. Export conditions are reordered so bundlers targeting the browser resolve the browser build (they previously matched "import" first and received the node build). Minimum supported Node is now 18.
+
+### ✨ Features
+
+- **js:** ship multi-format artifacts (browser ESM, standalone UMD/IIFE, node ESM/CJS) ( [#530](https://github.com/Ryan-Millard/Img2Num/issues/530) ) ( [f5b1ef9](https://github.com/Ryan-Millard/Img2Num/commit/f5b1ef907e43b68c32bdc15238daae6f28edf40f) )
+
+### 📚 Documentation
+
+- **website:** add example apps index page and rebuild HTML demos from a shared template ( [f5b1ef9](https://github.com/Ryan-Millard/Img2Num/commit/f5b1ef907e43b68c32bdc15238daae6f28edf40f) )
+
+## [v0.4.1 - 2026-08-16](https://github.com/Ryan-Millard/Img2Num/releases/tag/packages-js-v0.4.1)
+
+### 🐛 Bug Fixes
+
+- restore static wasm URL for bundler asset detection ( [#559](https://github.com/Ryan-Millard/Img2Num/issues/559) ) ( [1a27346](https://github.com/Ryan-Millard/Img2Num/commit/1a2734629701a702d7e7d5294fe8a8199187412b) )
+
+## [v0.3.0 - 2026-07-31](https://github.com/Ryan-Millard/Img2Num/releases/tag/packages-js-v0.3.0)
+
+### ⚠ BREAKING CHANGES
+
+- **js:** img2num no longer offloads WASM execution to a background thread automatically. Heavy operations (gaussianBlur, bilateralFilter, kmeans, imageToSvg) now run on whichever thread calls them. This can block the calling thread (browser main thread/UI or the Node event loop during processing. Consumers who need non-blocking behavior must now wrap calls in their own Worker or worker_thread.
+
+### ✨ Features
+
+- **example app:** add html-js example app to demo basic library usage ( [72c4669](https://github.com/Ryan-Millard/Img2Num/commit/72c466913d2ea0d33f910eeffb5e87ab0b463beb) )
+
+### 📚 Documentation
+
+- **CSS:** fix table of contents styling and layout ( [72c4669](https://github.com/Ryan-Millard/Img2Num/commit/72c466913d2ea0d33f910eeffb5e87ab0b463beb) )
+- **README.md:** add alt attributes to language icons and badges ( [#498](https://github.com/Ryan-Millard/Img2Num/issues/498) ) ( [21cf395](https://github.com/Ryan-Millard/Img2Num/commit/21cf39517785890cb7970e6e351b095558f85d87) ), closes [#492](https://github.com/Ryan-Millard/Img2Num/issues/492)
+- update JSDoc comments and break up website docs ( [72c4669](https://github.com/Ryan-Millard/Img2Num/commit/72c466913d2ea0d33f910eeffb5e87ab0b463beb) )
+- **website:** update documentation based on refactor in [#510](https://github.com/Ryan-Millard/Img2Num/issues/510) ( [72c4669](https://github.com/Ryan-Millard/Img2Num/commit/72c466913d2ea0d33f910eeffb5e87ab0b463beb) )
+
+### ♻️ Refactoring
+
+- **js:** run WASM calls on the caller's thread instead of a Worker ( [#510](https://github.com/Ryan-Millard/Img2Num/issues/510) ) ( [72c4669](https://github.com/Ryan-Millard/Img2Num/commit/72c466913d2ea0d33f910eeffb5e87ab0b463beb) )
+
+## [v0.2.1 - 2026-07-05](https://github.com/Ryan-Millard/Img2Num/releases/tag/packages-js-v0.2.1)
+
+### 🐛 Bug Fixes
+
+- **ImageToUint8Array:** memory leak and silent failure ( [#487](https://github.com/Ryan-Millard/Img2Num/issues/487) ) ( [0eb0598](https://github.com/Ryan-Millard/Img2Num/commit/0eb0598ec64ce6859946f79b89a554da87717f9c) )
+
+### 📚 Documentation
+
+- **packages/js:** add README for npm package ( [#466](https://github.com/Ryan-Millard/Img2Num/issues/466) ) ( [f193a54](https://github.com/Ryan-Millard/Img2Num/commit/f193a543f872b60a735706c1b5c1d6671c31563b) )
+
+## [v0.2.0 - 2026-06-27](https://github.com/Ryan-Millard/Img2Num/releases/tag/packages-js-v0.2.0)
+
+### ⚠ BREAKING CHANGES
+
+- **core:** prevent holes during SVG generation ( [#429](https://github.com/Ryan-Millard/Img2Num/issues/429) )
+
+### 🐛 Bug Fixes
+
+- **ci:** add NPM_TOKEN to npm publish step so packages/js can authenticate and publish to the npm registry ( [2427d1d](https://github.com/Ryan-Millard/Img2Num/commit/2427d1d3c67b9ebafcbf3a5021ed335a3d0683fc) )
+- **core:** add MSVC support via conditional compiler directives ( [2427d1d](https://github.com/Ryan-Millard/Img2Num/commit/2427d1d3c67b9ebafcbf3a5021ed335a3d0683fc) )
+- **core:** prevent holes during SVG generation ( [#429](https://github.com/Ryan-Millard/Img2Num/issues/429) ) ( [14e49f9](https://github.com/Ryan-Millard/Img2Num/commit/14e49f9a05496524e0190ddddf14283fbc907c0b) )
+- fix broken v0.1.0 release pipeline ( [#417](https://github.com/Ryan-Millard/Img2Num/issues/417) ) ( [2427d1d](https://github.com/Ryan-Millard/Img2Num/commit/2427d1d3c67b9ebafcbf3a5021ed335a3d0683fc) )
+- **packages/js:** support browser and node builds from shared Vite setup ( [#449](https://github.com/Ryan-Millard/Img2Num/issues/449) ) ( [0b2467c](https://github.com/Ryan-Millard/Img2Num/commit/0b2467c672474ef438f17ade91bfb7ed966632ca) )
+- **packages/py:** include third_party/ in sdist and disable example ( [2427d1d](https://github.com/Ryan-Millard/Img2Num/commit/2427d1d3c67b9ebafcbf3a5021ed335a3d0683fc) )
+
+## [v0.1.0 - 2026-05-29](https://github.com/Ryan-Millard/Img2Num/releases/tag/packages-js-v0.1.0)
+
+### ⚠ BREAKING CHANGES
+
+- **api:** remove draw_contour_borders from labels_to_svg ( [#283](https://github.com/Ryan-Millard/Img2Num/issues/283) )
+
+### ✨ Features
+
+- unified image_to_svg function as complete pipeline ( [#335](https://github.com/Ryan-Millard/Img2Num/issues/335) ) ( [bdba68c](https://github.com/Ryan-Millard/Img2Num/commit/bdba68c8adbbf79a163aba9df25849c5ff36a6b9) )
+
+### 🐛 Bug Fixes
+
+- **packages/js:** Remote property injection in wasmWorker.js ( [#346](https://github.com/Ryan-Millard/Img2Num/issues/346) ) ( [dfe3afe](https://github.com/Ryan-Millard/Img2Num/commit/dfe3afe55dc380c89e9d8cb38df350a178ee3caf) )
+
+### ⚡ Performance Improvements
+
+- **gpu:** add WebGPU acceleration with automatic fallback to CPU ( [#272](https://github.com/Ryan-Millard/Img2Num/issues/272) ) ( [c385319](https://github.com/Ryan-Millard/Img2Num/commit/c3853198aaf72e00888352653bf44fe129261201) )
+
+### ♻️ Refactoring
+
+- **api:** remove draw_contour_borders from labels_to_svg ( [#283](https://github.com/Ryan-Millard/Img2Num/issues/283) ) ( [eee9b31](https://github.com/Ryan-Millard/Img2Num/commit/eee9b3135b5b651a20cc8ffab74bcef073b74b6a) )

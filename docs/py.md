@@ -1,0 +1,74 @@
+# Python Binding
+
+URL: https://img2num.dev/docs/py
+
+The Python binding provides NumPy-backed wrappers around the Img2Num core library. Under the hood it is a native [pybind11](https://pybind11.readthedocs.io/) extension that calls directly into the C++ `img2num` library — there is no WASM involved.
+
+## Requirements
+
+- Python>=3.10
+- NumPy>=1.23.5
+
+## Installation
+
+Install Using pip
+
+```bash
+pip install img2num
+```
+
+CLI release availability
+PyPI version `0.3.1` does not include the `cli` extra or the `img2num` command. CLI installation from PyPI must wait for a release containing both. The repository source includes the CLI; see theCLI guide for source installation, usage examples, options, and troubleshooting.
+
+## Usage
+
+Input images must be **RGBA** (4 channels).
+
+> `width` and `height` are inferred from the array shape automatically - you don't pass them.
+
+```python
+import cv2
+from img2num import image_to_svg
+
+# Load and convert to RGBA (img2num requires 4 channels)
+img = cv2.imread("input.png")
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGBA) # VERY IMPORTANT: Must be RGBA format
+
+svg = image_to_svg(img)
+print(svg)
+```
+
+## Available Functions
+
+| Function | Description | `image_to_svg` | Full rasterSVG pipeline | `bilateral_filter` | Edge-preserving smoothing | `kmeans` | Color clustering | `labels_to_svg` | Convert a label map to SVG paths | `gaussian_blur_fft` | FFT-based Gaussian blur | `invert_image` | Invert pixel values | `threshold_image` | Posterize to N intensity levels | `black_threshold_image` | Force near-black pixels to pure black 
+
+See thePython API Reference for full signatures.
+
+## Threads and asynchronous applications
+
+Native image operations release Python's Global Interpreter Lock (GIL), so other Python threads can continue while Img2Num processes an image. Calls into the native core are serialized to protect its shared GPU context.
+
+The functions remain synchronous. Run them on a worker thread to keep a GUI or an asyncio event loop responsive, for example:
+
+```python
+import asyncio
+from img2num import image_to_svg
+
+svg = await asyncio.to_thread(image_to_svg, img)
+```
+
+Do not mutate or resize input arrays, including through another view, until the operation returns. Img2Num retains the input objects but does not lock their contents. `image_to_svg` takes a snapshot of the supplied configuration before releasing the GIL.
+
+## Configuration
+
+Override defaults by passing an `ImageToSvgConfig` object:
+
+```python
+from img2num import ImageToSvgConfig
+
+config = ImageToSvgConfig()
+config.kmeans.k = 32          # More colors
+config.min_cluster_area = 50  # Less filtering
+
+svg = image_to_svg(img, config=config)
+```
