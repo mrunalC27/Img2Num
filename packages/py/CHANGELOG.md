@@ -1,5 +1,81 @@
 # Changelog
 
+## [0.1.0](https://github.com/mrunalC27/Img2Num/compare/packages-py-v0.3.1...packages-py-v0.1.0) (2026-11-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **core:** prevent holes during SVG generation ([#429](https://github.com/mrunalC27/Img2Num/issues/429))
+
+### ✨ Features
+
+* cli tool ([#703](https://github.com/mrunalC27/Img2Num/issues/703)) ([ac4d06f](https://github.com/mrunalC27/Img2Num/commit/ac4d06fda8279c77e949bfa15eca3fc4b83035c2))
+* **gpu:** truly parallel execution ([#784](https://github.com/mrunalC27/Img2Num/issues/784)) ([dfeec90](https://github.com/mrunalC27/Img2Num/commit/dfeec90a26d83d29584a96f0f0b5f7e2e8f31e93))
+* **py:** expose img2num.__version__ ([#758](https://github.com/mrunalC27/Img2Num/issues/758)) ([9a8f275](https://github.com/mrunalC27/Img2Num/commit/9a8f275287ee77a53de6f67bd3a4b3bc581dce26))
+* **py:** ship type information (stub + py.typed) in wheels ([#540](https://github.com/mrunalC27/Img2Num/issues/540)) ([a858cb4](https://github.com/mrunalC27/Img2Num/commit/a858cb4c7ab8d107b3ff772269bffaf7a5bcf997))
+* **python:** enable Python bindings via pybind11 and add console-py example ([#307](https://github.com/mrunalC27/Img2Num/issues/307)) ([294ae53](https://github.com/mrunalC27/Img2Num/commit/294ae53f4967495ff73c9c391bafc2e115a7eccf))
+* unified image_to_svg function as complete pipeline ([#335](https://github.com/mrunalC27/Img2Num/issues/335)) ([bdba68c](https://github.com/mrunalC27/Img2Num/commit/bdba68c8adbbf79a163aba9df25849c5ff36a6b9))
+
+
+### 🐛 Bug Fixes
+
+* **ci:** add NPM_TOKEN to npm publish step so packages/js can ([2427d1d](https://github.com/mrunalC27/Img2Num/commit/2427d1d3c67b9ebafcbf3a5021ed335a3d0683fc))
+* **core:** add MSVC support via conditional compiler directives — ([2427d1d](https://github.com/mrunalC27/Img2Num/commit/2427d1d3c67b9ebafcbf3a5021ed335a3d0683fc))
+* **core:** prevent holes during SVG generation ([#429](https://github.com/mrunalC27/Img2Num/issues/429)) ([14e49f9](https://github.com/mrunalC27/Img2Num/commit/14e49f9a05496524e0190ddddf14283fbc907c0b))
+* fix broken v0.1.0 release pipeline ([#417](https://github.com/mrunalC27/Img2Num/issues/417)) ([2427d1d](https://github.com/mrunalC27/Img2Num/commit/2427d1d3c67b9ebafcbf3a5021ed335a3d0683fc))
+* **packages/py:** include third_party/ in sdist and disable example ([2427d1d](https://github.com/mrunalC27/Img2Num/commit/2427d1d3c67b9ebafcbf3a5021ed335a3d0683fc))
+* **py:** reject non-RGBA images before native calls ([#780](https://github.com/mrunalC27/Img2Num/issues/780)) ([4d18cac](https://github.com/mrunalC27/Img2Num/commit/4d18cac223d154aff08eab5069e9b7616c740d95))
+* **readme:** update links to use img2num.dev domain ([#508](https://github.com/mrunalC27/Img2Num/issues/508)) ([177b894](https://github.com/mrunalC27/Img2Num/commit/177b894f21bf7dcfca565734bba7e4603217f8c6))
+
+
+### ⏪ Reverts
+
+* **1828f68:** packages-py v0.2.2 ([#506](https://github.com/mrunalC27/Img2Num/issues/506)) - broken release ([19ecbe5](https://github.com/mrunalC27/Img2Num/commit/19ecbe5544369941a4452607a16fce5748026eb8))
+
+
+### 📚 Documentation
+
+* add JS 0.4.2 blog post, overhaul READMEs and security policy, redesign navbar ([#558](https://github.com/mrunalC27/Img2Num/issues/558)) ([e1a2a8a](https://github.com/mrunalC27/Img2Num/commit/e1a2a8aa332dc0a3e826a80e2ac9581964f747f5))
+* **api:** describe black_threshold_image as a per-channel brightness cutoff ([#692](https://github.com/mrunalC27/Img2Num/issues/692)) ([3506b0a](https://github.com/mrunalC27/Img2Num/commit/3506b0afc82b6d67e69e38a906b0cbf91763fb20)), closes [#691](https://github.com/mrunalC27/Img2Num/issues/691)
+* **examples:** add community showcase ([#644](https://github.com/mrunalC27/Img2Num/issues/644)) ([e6b20ba](https://github.com/mrunalC27/Img2Num/commit/e6b20babd1bd7d66662b25435e0297155605f10c)), closes [#638](https://github.com/mrunalC27/Img2Num/issues/638)
+* **py:** auto-generate the Python API reference from docstrings ([a858cb4](https://github.com/mrunalC27/Img2Num/commit/a858cb4c7ab8d107b3ff772269bffaf7a5bcf997))
+* **README.md:** add README specific to python package ([#488](https://github.com/mrunalC27/Img2Num/issues/488)) ([d211d98](https://github.com/mrunalC27/Img2Num/commit/d211d988a8f5389c27d520b02a28f7731a76a48a))
+* refresh docs, add Python guides, and remove outdated versioning ([#446](https://github.com/mrunalC27/Img2Num/issues/446)) ([8edaadd](https://github.com/mrunalC27/Img2Num/commit/8edaadddf18ca20407b7f480cd88c72b11c99000))
+* **website:** added the Discord server to the navbar, footer and contributing guide ([#689](https://github.com/mrunalC27/Img2Num/issues/689)) ([2d7e84d](https://github.com/mrunalC27/Img2Num/commit/2d7e84defce9e4f6ea3b17cd7f4a29732f03d41d))
+
+
+### 🔧 Miscellaneous
+
+* **bindings/c:** bootstrap initial release ([425ee8d](https://github.com/mrunalC27/Img2Num/commit/425ee8d89075c64f4ba99d6542a50a23c61f562c))
+* bump black from 23.12.1 to 26.3.1 in the uv group across 1 directory ([#555](https://github.com/mrunalC27/Img2Num/issues/555)) ([4d6a9eb](https://github.com/mrunalC27/Img2Num/commit/4d6a9ebd37c38cdfc48543b5662df67122bb7b74))
+* **ci:** add Release Please automation with multi-language publish and propagation ([#339](https://github.com/mrunalC27/Img2Num/issues/339)) ([c01bbbe](https://github.com/mrunalC27/Img2Num/commit/c01bbbeb62925487e0f9546200cfdd2ff8ed2191))
+* **core:** bootstrap initial release ([f8972d6](https://github.com/mrunalC27/Img2Num/commit/f8972d6e44a4872d189d9b26af696b59f3bb9770))
+* **js:** ship multi-format artifacts (browser ESM, standalone UMD/IIFE, node ESM/CJS) ([f5b1ef9](https://github.com/mrunalC27/Img2Num/commit/f5b1ef907e43b68c32bdc15238daae6f28edf40f))
+* **linting:** fix ruff warnings and enforce ruff in CI ([#620](https://github.com/mrunalC27/Img2Num/issues/620)) ([e44ae8c](https://github.com/mrunalC27/Img2Num/commit/e44ae8c8ed0850516902af4c8e284c0c76a28a35)), closes [#606](https://github.com/mrunalC27/Img2Num/issues/606)
+* **main:** release cpp 0.3.0 ([#546](https://github.com/mrunalC27/Img2Num/issues/546)) ([147d07e](https://github.com/mrunalC27/Img2Num/commit/147d07e5f8777725d7e27d5cde515980229a3163))
+* **main:** release cpp 0.4.0 ([#814](https://github.com/mrunalC27/Img2Num/issues/814)) ([7cdf6c0](https://github.com/mrunalC27/Img2Num/commit/7cdf6c0dad888a00820184c3b4fdf0ba373879f2))
+* **main:** release packages-py 0.1.0 ([#406](https://github.com/mrunalC27/Img2Num/issues/406)) ([9e03a69](https://github.com/mrunalC27/Img2Num/commit/9e03a69d76325f72ec8923489e4c96e82fc7bdce))
+* **main:** release packages-py 0.2.0 ([#420](https://github.com/mrunalC27/Img2Num/issues/420)) ([79cc4db](https://github.com/mrunalC27/Img2Num/commit/79cc4dbcf111c811233421e92ed04027ce7d2c77))
+* **main:** release packages-py 0.2.1 ([#485](https://github.com/mrunalC27/Img2Num/issues/485)) ([2e71ee9](https://github.com/mrunalC27/Img2Num/commit/2e71ee9c2018bba9dc214f0d58b3cadfb0a4fe2f))
+* **main:** release packages-py 0.2.2 ([#506](https://github.com/mrunalC27/Img2Num/issues/506)) ([1828f68](https://github.com/mrunalC27/Img2Num/commit/1828f68d52028f4b831e8437e20885bc6fe358ea))
+* **main:** release packages-py 0.2.2 ([#536](https://github.com/mrunalC27/Img2Num/issues/536)) ([31f0545](https://github.com/mrunalC27/Img2Num/commit/31f0545526085b2f5072f271a2cc657b977ad133))
+* **main:** release packages-py 0.3.0 ([#550](https://github.com/mrunalC27/Img2Num/issues/550)) ([28e83fd](https://github.com/mrunalC27/Img2Num/commit/28e83fdb6d3059302c53cb5462b15f45e56e951f))
+* **main:** release packages-py 0.3.1 ([#560](https://github.com/mrunalC27/Img2Num/issues/560)) ([6878ee7](https://github.com/mrunalC27/Img2Num/commit/6878ee770124e85d6a1b15a8e5aaeed2b859b19d))
+* **packages/js:** bootstrap initial release ([443eb9b](https://github.com/mrunalC27/Img2Num/commit/443eb9b152b8e4c6d792e82edacc8241082cc5f4))
+* pin dev dependency ranges and exclude generated .pyi from editorconfig checks ([a858cb4](https://github.com/mrunalC27/Img2Num/commit/a858cb4c7ab8d107b3ff772269bffaf7a5bcf997))
+* **release:** add version propagation tracking files ([#787](https://github.com/mrunalC27/Img2Num/issues/787)) ([#787](https://github.com/mrunalC27/Img2Num/issues/787)) ([7d3216f](https://github.com/mrunalC27/Img2Num/commit/7d3216f61c96abb8510228961abe818b278f0740))
+
+
+### ✅ Tests
+
+* **API:** add pytest suite for the Python package ([#653](https://github.com/mrunalC27/Img2Num/issues/653)) ([05ba419](https://github.com/mrunalC27/Img2Num/commit/05ba4194d00cf7b37165f74a2b0aafc524f2a2d8))
+
+
+### 🏗️ Build System
+
+* **packages/py:** move pyproject.toml to repo root for PyPI publishing ([#403](https://github.com/mrunalC27/Img2Num/issues/403)) ([25fa565](https://github.com/mrunalC27/Img2Num/commit/25fa5651b502864a159f345a72529865d3445420))
+* **py:** declare the version via the standard [[tool.dynamic-metadata]] table ([a858cb4](https://github.com/mrunalC27/Img2Num/commit/a858cb4c7ab8d107b3ff772269bffaf7a5bcf997))
+
 ## [0.3.1](https://github.com/Ryan-Millard/Img2Num/compare/packages-py-v0.3.0...packages-py-v0.3.1) (2026-09-24)
 
 
